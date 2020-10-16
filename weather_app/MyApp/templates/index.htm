@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>practice</title>
+    <style>
+        
+        .container{
+            height: 570px;
+            background-image: url('static/pic.jpg');
+            background-size: cover;
+            width: 1325px;
+            background-position: center;
+        }
+        .info{
+            position: absolute;
+            left: 25%;
+            top:25%;
+            margin: auto;
+            width: 50%;
+            border: 3px solid white;
+            padding: 3px;  
+        }
+        .search_bar{
+            border: snow;
+            padding-top: 30px;
+            padding-left: 400px;
+            margin: auto;
+            width: 50%;
+
+        }
+        .btn{
+            padding-top: 30px;
+            padding-left: 600px;
+            margin: auto;
+            
+
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Search Weather Report of a place</h1>
+    
+    <form method="post">{% csrf_token %}
+        
+        <div class="search_bar">
+            <input style="width: 200px;" type="text" name="city" placeholder="Enter city name to know weather" required>
+        </div>
+        <div class='btn'>
+            <button style="color: royalblue;" type="submit">click</button>
+        </div>
+    </form>
+    {% if Country_code and Coordinate and Weather and Temperature and Humidity %}
+        <div class="info">
+            <h3>country_code : {{Country_code}}</h3>
+            <h3>coordinate : {{Coordinate}}</h3>
+            <h3>weather : {{Weather}}</h3>
+            <h3>temp : {{Temperature}}</h3>
+            <h3>humidity : {{Humidity}}</h3>
+        </div>
+        {% endif %}
+      </div>
+</body>
+</html>
